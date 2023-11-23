@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tutorial } from 'src/app/models/tutorial.model';
 import { TutorialService } from 'src/app/services/tutorial.service';
+import { Instrument } from 'src/app/services/instrument.service';
 
 @Component({
   selector: 'app-tutorials-list',
@@ -11,7 +12,7 @@ export class TutorialsListComponent {
   tutorials?: Tutorial[];
   currentTutorial: Tutorial = {};
   currentIndex = -1;
-  title = '';
+  title:string = '';
 
   constructor(private tutorialService: TutorialService) {}
 
