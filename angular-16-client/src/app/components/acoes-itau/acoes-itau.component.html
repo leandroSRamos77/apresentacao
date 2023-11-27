@@ -1,0 +1,18 @@
+<p>acoes-itau works!</p>
+<div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let itauAcoes of acoesPrintNaTela; let i = index"
+    >
+    <div>{{ itauAcoes.valorData | date : 'dd/MM/yyyy' }}</div>
+      <div>{{ itauAcoes.valorAnterior }}</div>
+      <div>{{ itauAcoes.valorCompra }}</div>
+      <div>{{ itauAcoes.valorOperacao }}</div>
+      <div>{{ itauAcoes.valorQuantidade }}</div>
+      <div>{{ itauAcoes.valorPorcentagem }} %</div>
+
+    </li>
+  </ul>
+</div>

@@ -8,7 +8,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'tutorials', pathMatch: 'full' },
+  { path: '', redirectTo: 'users', pathMatch: 'full' },
   { path: 'tutorials', component: TutorialsListComponent },
   { path: 'tutorials/:id', component: TutorialDetailsComponent },
   { path: 'users', component: UserListComponent },

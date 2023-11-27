@@ -1,0 +1,18 @@
+<p>acoes-pan works!</p>
+<div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let panAcoes of acoesPrintNaTela; let i = index"
+    >
+    <div>{{ panAcoes.valorData | date : 'dd/MM/yyyy' }}</div>
+      <div>{{ panAcoes.valorAnterior }}</div>
+      <div>{{ panAcoes.valorCompra }}</div>
+      <div>{{ panAcoes.valorOperacao }}</div>
+      <div>{{ panAcoes.valorQuantidade }}</div>
+      <div>{{ panAcoes.valorPorcentagem }} %</div>
+
+    </li>
+  </ul>
+</div>

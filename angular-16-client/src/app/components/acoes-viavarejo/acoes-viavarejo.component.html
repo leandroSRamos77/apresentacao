@@ -1,0 +1,18 @@
+<p></p>
+<div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let viaVarejoAcoes of acoesPrintNaTela; let i = index"
+    >
+    <div>{{ viaVarejoAcoes.valorData | date : 'dd/MM/yyyy' }}</div>
+      <div>{{ viaVarejoAcoes.valorAnterior }}</div>
+      <div>{{ viaVarejoAcoes.valorCompra }}</div>
+      <div>{{ viaVarejoAcoes.valorOperacao }}</div>
+      <div>{{ viaVarejoAcoes.valorQuantidade }}</div>
+      <div>{{ viaVarejoAcoes.valorPorcentagem }} %</div>
+
+    </li>
+  </ul>
+</div>

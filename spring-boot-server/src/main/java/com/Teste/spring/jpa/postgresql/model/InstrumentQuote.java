@@ -1,5 +1,7 @@
 package com.Teste.spring.jpa.postgresql.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.xml.crypto.Data;
@@ -30,8 +32,8 @@ public class InstrumentQuote {
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date date;
 
-
-  public InstrumentQuote(){}
+  public InstrumentQuote() {
+  }
 
   public InstrumentQuote(String simbol, double price, Date date) {
     this.simbol = simbol;
@@ -48,8 +50,10 @@ public class InstrumentQuote {
     return this.price;
   }
 
-  public Date getData() {
-    return this.date;
+  public String getData() {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String dataretorno = sdf.format(date);
+    return dataretorno;
   }
 
   public void setSimbol(String simbol) {
@@ -67,5 +71,11 @@ public class InstrumentQuote {
   @Override
   public String toString() {
     return "Tutorial [id=" + id + ", simbol=" + simbol + ", price=" + price + ", date=" + date + "]";
+  }
+
+  public String getDataFormatado() throws ParseException {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String dataretorno = sdf.format(date);
+    return dataretorno;
   }
 }

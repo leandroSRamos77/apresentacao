@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Teste.spring.jpa.postgresql.model.InstrumentQuote;
-import com.Teste.spring.jpa.postgresql.model.Tutorial;
 import com.Teste.spring.jpa.postgresql.repository.InstrumentQuoteRepository;
 
 @CrossOrigin(origins = "*")

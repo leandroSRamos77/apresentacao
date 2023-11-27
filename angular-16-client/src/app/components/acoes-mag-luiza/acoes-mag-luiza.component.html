@@ -1,0 +1,18 @@
+<p></p>
+<div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let magaluAcoes of acoesPrintNaTela; let i = index"
+    >
+    <div>{{ magaluAcoes.valorData | date : 'dd/MM/yyyy' }}</div>
+      <div>{{ magaluAcoes.valorAnterior }}</div>
+      <div>{{ magaluAcoes.valorCompra }}</div>
+      <div>{{ magaluAcoes.valorOperacao }}</div>
+      <div>{{ magaluAcoes.valorQuantidade }}</div>
+      <div>{{ magaluAcoes.valorPorcentagem }} %</div>
+
+    </li>
+  </ul>
+</div>

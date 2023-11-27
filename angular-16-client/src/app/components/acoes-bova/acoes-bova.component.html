@@ -1,0 +1,18 @@
+<p></p>
+<div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let bovaAcoes of acoesPrintNaTela; let i = index"
+    >
+    <div>{{ bovaAcoes.valorData | date : 'dd/MM/yyyy' }}</div>
+      <div>{{ bovaAcoes.valorAnterior }}</div>
+      <div>{{ bovaAcoes.valorCompra }}</div>
+      <div>{{ bovaAcoes.valorOperacao }}</div>
+      <div>{{ bovaAcoes.valorQuantidade }}</div>
+      <div>{{ bovaAcoes.valorPorcentagem }} %</div>
+
+    </li>
+  </ul>
+</div>

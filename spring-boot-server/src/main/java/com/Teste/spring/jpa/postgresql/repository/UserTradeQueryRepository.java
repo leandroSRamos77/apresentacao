@@ -1,19 +1,13 @@
 package com.Teste.spring.jpa.postgresql.repository;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Repository;
-
 import com.Teste.spring.jpa.postgresql.model.UserTrade;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import org.springframework.stereotype.Repository;
+
+import java.util.Date;
+import java.util.List;
 
 @Repository
 public class UserTradeQueryRepository {
@@ -58,6 +52,43 @@ public class UserTradeQueryRepository {
 
         return typedQuery.getResultList();
 
+    }
+
+
+    public List<Object[]> fetchTradeData(String name) {
+        String jpql = """
+                SELECT iq.price as precoAnterior, ut.preco as precoDaCompra,
+                       ut.tipoOperacao as operacao, ut.prazo as sigla, ut.instrument as nome,
+                       ut.quantidade as quantidade, to_char(ut.data, 'YYYY-MM-dd') as data
+                FROM UserTrade ut
+                LEFT JOIN InstrumentQuote iq ON iq.simbol = ut.prazo AND iq.date = ut.data
+                WHERE (ut.tipoOperacao = 'V' OR ut.tipoOperacao = 'C') AND ut.prazo = :custName
+                """;
+
+        TypedQuery<Object[]> query = em.createQuery(jpql,Object[].class);
+        query.setParameter("custName", name);
+        System.out.println("query.getResultList()");
+        System.out.println(query.getResultList());
+        return query.getResultList();
+    }
+
+
+
+        public List<Object[]> fetchTradeData() {
+        String jpql = """
+                SELECT iq.price as precoAnterior, ut.preco as precoDaCompra,
+                       ut.tipoOperacao as operacao, ut.prazo as sigla, ut.instrument as nome,
+                       ut.quantidade as quantidade, to_char(ut.data, 'YYYY-MM-dd') as data
+                FROM UserTrade ut
+                LEFT JOIN InstrumentQuote iq ON iq.simbol = ut.prazo AND iq.date = ut.data
+                WHERE ut.tipoOperacao = 'V' OR ut.tipoOperacao = 'C'
+                """;
+
+        TypedQuery<Object[]> query = em.createQuery(jpql,Object[].class);
+
+        System.out.println("query.getResultList()");
+        System.out.println(query.getResultList());
+        return query.getResultList();
     }
 
 }

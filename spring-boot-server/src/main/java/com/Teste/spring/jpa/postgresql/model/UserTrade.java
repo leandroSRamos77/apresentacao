@@ -1,8 +1,11 @@
 package com.Teste.spring.jpa.postgresql.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.scheduling.config.Task;
 
 import jakarta.persistence.CascadeType;
@@ -26,6 +29,7 @@ public class UserTrade {
     private long id;
 
     @Column(name = "data")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
 
     @Column(name = "tipo_operacao")
@@ -73,14 +77,14 @@ public class UserTrade {
         this.valorTotal = valorTotal;
     }
 
-        public UserTrade(double preco, String tipoOperacao,String prazo, String instrument,
-             double quantidade) {
-            
-                this.preco = preco;
-                this.tipoOperacao = tipoOperacao;
-                this.prazo = prazo;
-                this.instrument = instrument;
-                this.quantidade = quantidade;
+    public UserTrade(double preco, String tipoOperacao, String prazo, String instrument,
+            double quantidade) {
+
+        this.preco = preco;
+        this.tipoOperacao = tipoOperacao;
+        this.prazo = prazo;
+        this.instrument = instrument;
+        this.quantidade = quantidade;
     }
 
     public Date getData() {
@@ -160,4 +164,11 @@ public class UserTrade {
         return "Tutorial [id=" + id + ", date=" + data + ", tipoOperacao=" + tipoOperacao + ", mercado=" + mercado
                 + "]";
     }
+
+    public String getDataFormatado() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dataretorno = sdf.format(data);
+        return dataretorno;
+    }
+
 }

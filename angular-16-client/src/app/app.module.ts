@@ -15,6 +15,11 @@ import { ChartLineComponent } from './components/chart-line/chart-line.component
 import { ChartBarComponent } from './components/chart-bar/chart-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AcoesItauComponent } from './components/acoes-itau/acoes-itau.component';
+import { AcoesPanComponent } from './components/acoes-pan/acoes-pan.component';
+import { AcoesBovaComponent } from './components/acoes-bova/acoes-bova.component';
+import { AcoesMagLuizaComponent } from './components/acoes-mag-luiza/acoes-mag-luiza.component';
+import { AcoesViavarejoComponent } from './components/acoes-viavarejo/acoes-viavarejo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { MatTabsModule } from '@angular/material/tabs';
     UserListComponent,
     AddUserComponent,
     ChartLineComponent,
-    ChartBarComponent
+    ChartBarComponent,
+    AcoesItauComponent,
+    AcoesPanComponent,
+    AcoesBovaComponent,
+    AcoesMagLuizaComponent,
+    AcoesViavarejoComponent
   ],
   imports: [
     BrowserModule,
