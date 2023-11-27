@@ -7,6 +7,7 @@ import { AcoesService } from 'src/app/services/acoes.service';
   styleUrls: ['./acoes-viavarejo.component.css']
 })
 export class AcoesViavarejoComponent {
+  saldoTotal:number =0;
   acoesPrintNaTela:any[] = [];
   constructor(private acoesService: AcoesService) {}
 
@@ -18,7 +19,9 @@ export class AcoesViavarejoComponent {
     this.acoesService.getAllVVAR3F().subscribe({
       next: (data:any) => {
         data.map((e:any,i:number)=>{ //parseFloat(num).toFixed(2)
-          console.log(e,i);
+          if(e['2'] == 'V'){
+            this.saldoTotal +=(e['1']*e['5']);
+          }
           this.acoesPrintNaTela.push({
 
             valorData:  e['6'],

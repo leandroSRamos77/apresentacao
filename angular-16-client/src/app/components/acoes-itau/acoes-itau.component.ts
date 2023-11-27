@@ -7,7 +7,7 @@ import { AcoesService } from 'src/app/services/acoes.service';
   styleUrls: ['./acoes-itau.component.css']
 })
 export class AcoesItauComponent {
-
+  saldoTotal:number =0;
   acoesPrintNaTela:any[] = [];
   constructor(private acoesService: AcoesService) {}
 
@@ -19,7 +19,10 @@ export class AcoesItauComponent {
     this.acoesService.getAllITUB4F().subscribe({
       next: (data) => {
         data.map((e:any,i:number)=>{ //parseFloat(num).toFixed(2)
-          console.log(e,i);
+         // console.log(e,i);
+          if(e['2'] == 'V'){
+            this.saldoTotal +=(e['1']*e['5']);
+          }
           this.acoesPrintNaTela.push({
 
             valorData:  e['6'],

@@ -1,6 +1,6 @@
 <p></p>
 <div>
-
+  <div>Saldo Total:{{saldoTotal | number : '.2-2'}}</div>
   <ul class="list-group">
     <li
       class="list-group-item"
@@ -11,7 +11,7 @@
       <div>{{ magaluAcoes.valorCompra }}</div>
       <div>{{ magaluAcoes.valorOperacao }}</div>
       <div>{{ magaluAcoes.valorQuantidade }}</div>
-      <div>{{ magaluAcoes.valorPorcentagem }} %</div>
+      <div>{{ (magaluAcoes.valorOperacao == 'V')? (magaluAcoes.valorPorcentagem *-1):magaluAcoes.valorPorcentagem }} %</div>
 
     </li>
   </ul>

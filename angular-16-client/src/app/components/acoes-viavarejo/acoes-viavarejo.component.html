@@ -1,6 +1,6 @@
 <p></p>
 <div>
-
+  <div>Saldo Total:{{saldoTotal | number : '.2-2'}}</div>
   <ul class="list-group">
     <li
       class="list-group-item"
@@ -11,7 +11,7 @@
       <div>{{ viaVarejoAcoes.valorCompra }}</div>
       <div>{{ viaVarejoAcoes.valorOperacao }}</div>
       <div>{{ viaVarejoAcoes.valorQuantidade }}</div>
-      <div>{{ viaVarejoAcoes.valorPorcentagem }} %</div>
+      <div>{{ (viaVarejoAcoes.valorOperacao == 'V')? (viaVarejoAcoes.valorPorcentagem *-1):viaVarejoAcoes.valorPorcentagem }} %</div>
 
     </li>
   </ul>

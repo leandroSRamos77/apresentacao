@@ -7,7 +7,7 @@ import { AcoesService } from 'src/app/services/acoes.service';
   styleUrls: ['./acoes-bova.component.css']
 })
 export class AcoesBovaComponent {
-
+  saldoTotal:number =0;
   acoesPrintNaTela:any[] = [];
   constructor(private acoesService: AcoesService) {}
 
@@ -18,8 +18,12 @@ export class AcoesBovaComponent {
   chamadaDasAcoes(){
     this.acoesService.getAllBOVA11().subscribe({
       next: (data:any) => {
+
         data.map((e:any,i:number)=>{ //parseFloat(num).toFixed(2)
-          console.log(e,i);
+          //console.log(e,i);
+          if(e['2'] == 'V'){
+            this.saldoTotal +=(e['1']*e['5']);
+          }
           this.acoesPrintNaTela.push({
 
             valorData:  e['6'],
